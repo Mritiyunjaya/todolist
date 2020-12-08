@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  
+<head> 
+   <meta charset="utf-8" />
+   <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<BODY>
+  <h1>TODO LIST</h1>
+  <p>Single click to edit,single click to delete it from completed task,Double click to mark it done</p>
+    <input type="text"  placeholder="Add Task" id="text">
+       <button class="btn">Add</button> 
+
+  <div class="container">
+
+    <div class="task-todo">
+
+      <h3>Todo</h3>
+           <ol id="Todoid"></ol>
+      
+    </div>
+
+        <div class="completed-task">
+
+        <h3>Completed Task</h3>
+              <ol id="Completedid"></ol>
+       </div>
+    </div>
+
+ <script>
+ 
+
+   $(document).ready(function(){
+      
+
+    $('button').click(function(){
+                var x=$("input").val();
+                if(x!='')
+                 {
+               $("#Todoid").append('<li contenteditable="true">'+x+'</li>');
+             }
+             else
+             {
+              alert('enter some value');
+             }
+            }); 
+
+    $(document).on('dblclick','li',function(){
+              var rem=$(this).remove();
+              $('#Completedid').append(rem);
+          });
+    $('#Completedid').click(function(){
+           $(this).remove();
+
+    });
+   });
+ </script>
+
+</BODY>
+</html>
